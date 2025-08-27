@@ -31,236 +31,7 @@ return 0;
 }
 */
 
-//COUNTING INVERSIONS
-/*
-#include<bits/stdc++.h>
-using namespace std;
-
-int merge(vector<int> &arr,int low,int mid,int high)
-{
-  vector<int>temp; //creating temporary array space;
-  int left=low;
-  int right=mid+1,cnt=0;
-  while(left<=mid && right<=high)
-  {
-    if(arr[left]<=arr[right])
-    {
-      temp.push_back(arr[left]);
-      left++;
-    }
-    else
-    {
-      temp.push_back(arr[right]);
-      right++;
-      cnt+=(mid-left+1);
-    }
-  }
-  //inserting elements left in bigger array
-    while(left<=mid)
-    {
-      temp.push_back(arr[left]);
-      left++;
-    }
-    while(right<=high)
-    {
-      temp.push_back(arr[right]);
-      right++;
-    }
-    for(int i=low;i<=high;i++)
-    {
-      arr[i]=temp[i-low]; //shifting to main array
-    }
-    return cnt;
-}
-
-int mergesort(vector<int> &arr,int low,int high)
-{
-    int cnt=0;
-  if(low>=high)
-  return 0;
-  int mid=(low+high)/2;
-  cnt+=mergesort(arr,low,mid);
-  cnt+=mergesort(arr,mid+1,high);
-  cnt+=merge(arr,low,mid,high);
-  return cnt;
-}
-int main()
-{
-  int n;
-    cout<<"Enter the number of terms"<<endl;
-    cin>>n;
-    vector<int> a(n);
-    cout<<"Enter the terms please"<<endl;
-    for(int i=0;i<n;i++)
-    {
-      cin>>a[i];
-    }
-    cout<<" "<<mergesort(a,0,n-1);
-return 0;
-}
-*/
-
-//COUNTING DISTINCT ELEMENTS
-/*
-#include <iostream>
-#include <vector>
-using namespace std;
-
-int countdistinct(const vector<int>& arr, int n) {
-    int count = 0;
-
-    for (int i = 0; i<n; i++) {
-        bool isDistinct = true;
-
-        for (int j = 0; j < i; j++) {
-            if (arr[i]==arr[j]) 
-            {
-                isDistinct=false;
-                break;
-            }
-        }
-
-        if (isDistinct) {
-            count++;
-        }
-    }
-
-    return count;
-}
-
-int main() {
-    int n;
-    cout << "Enter the number of elements in the array: ";
-    cin >> n;
-
-    vector<int> arr(n);
-    cout << "Enter the elements:\n";
-    for (int i = 0; i < n; i++) {
-        cin >> arr[i];
-    }
-    int distinctcount = countdistinct(arr, n);
-    cout << "Total number of distinct elements: " << distinctCount << endl;
-    return 0;
-}
-    */
-
-//Q5a Concatenating Strings
-/*
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    string str1, str2;
-    cout << "Enter first string: ";
-    getline(cin, str1);
-    cout << "Enter second string: ";
-    getline(cin, str2);
-    str1= str1+str2;
-    cout << "Concatenated string is " << str1 << endl;
-    return 0;
-}
-    */
-
-    //Q5b Reversing Strings
-    /*
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    string str;
-    cout << "Enter a string: ";
-    getline(cin, str);
-
-    int n = str.length();
-    for (int i = 0; i < n / 2; i++) 
-    {
-        swap(str[i], str[n - i - 1]);
-    }
-    cout << "Reversed string: " << str << endl;
-    return 0;
-}
-    */
-
-//Deleting all vowels
-/*
-#include <iostream>
-#include <string>
-using namespace std;
-
-bool isVowel(char ch) 
-{
-    if(ch =='a'||ch =='e'||ch =='i'||ch =='o'||ch =='u')
-        return true;
-}
-
-int main() 
-{
-    string str, result = "";
-    cout << "Enter a string in lowercase ";
-    getline(cin, str);
-
-    for (char ch:str) 
-    {
-        if (!isVowel(ch)) {
-            result += ch;
-        }
-    }
-    cout << "String without vowels is " << result << endl;
-    return 0;
-}
-    */
-
-//Sorting Strings in Alphabetical Order
-/*
-#include <iostream>
-#include <vector>
-#include<algorithm>
-using namespace std;
-
-int main() {
-    int n;
-    cout << "Enter number of strings: ";
-    cin >> n;
-
-    vector<string> words(n);
-    cout << "Enter the strings:\n";
-    for (int i = 0; i < n; i++) {
-        getline(cin, words[i]);
-    }
-
-    sort(words.begin(), words.end());
-
-    cout << "Sorted strings:\n";
-    for (const auto& word : words) 
-    cout << word << "\n";
-    return 0;
-}
-    */
-
-//Uppercase to Lowercase
-/*
-#include <iostream>
-using namespace std;
-
-int main() {
-    char ch;
-    cout << "Enter an uppercase character"<<endl;
-    cin >> ch;
-
-    if (ch>='A' && ch<='Z') 
-    {
-        ch = ch + 32;
-        cout << "Lowercase version is " << ch << endl;
-    } else {
-        cout << "Input is not an uppercase letter" << endl;
-    }
-    return 0;
-}
-*/
-
-//BUBBLE SORT
+//Q2 BUBBLE SORT
 /*
 #include<iostream>
 using namespace std;
@@ -350,6 +121,122 @@ int main()
     return 0;
 }
     */
+
+//Q4a Concatenating Strings
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str1, str2;
+    cout << "Enter first string: ";
+    getline(cin, str1);
+    cout << "Enter second string: ";
+    getline(cin, str2);
+    str1= str1+str2;
+    cout << "Concatenated string is " << str1 << endl;
+    return 0;
+}
+    */
+
+//Q4b Reversing Strings
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string str;
+    cout << "Enter a string: ";
+    getline(cin, str);
+
+    int n = str.length();
+    for (int i = 0; i < n / 2; i++) 
+    {
+        swap(str[i], str[n - i - 1]);
+    }
+    cout << "Reversed string: " << str << endl;
+    return 0;
+}
+    */
+
+//Q4c Deleting all vowels
+/*
+#include <iostream>
+#include <string>
+using namespace std;
+
+bool isVowel(char ch) 
+{
+    if(ch =='a'||ch =='e'||ch =='i'||ch =='o'||ch =='u')
+        return true;
+}
+
+int main() 
+{
+    string str, result = "";
+    cout << "Enter a string in lowercase ";
+    getline(cin, str);
+
+    for (char ch:str) 
+    {
+        if (!isVowel(ch)) {
+            result += ch;
+        }
+    }
+    cout << "String without vowels is " << result << endl;
+    return 0;
+}
+    */
+
+//Q4d Sorting Strings in Alphabetical Order
+/*
+#include <iostream>
+#include <vector>
+#include<algorithm>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter number of strings: ";
+    cin >> n;
+
+    vector<string> words(n);
+    cout << "Enter the strings:\n";
+    for (int i = 0; i < n; i++) {
+        getline(cin, words[i]);
+    }
+
+    sort(words.begin(), words.end());
+
+    cout << "Sorted strings:\n";
+    for (const auto& word : words) 
+    cout << word << "\n";
+    return 0;
+}
+    */
+
+//Q4e Uppercase to Lowercase
+/*
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch;
+    cout << "Enter an uppercase character"<<endl;
+    cin >> ch;
+
+    if (ch>='A' && ch<='Z') 
+    {
+        ch = ch + 32;
+        cout << "Lowercase version is " << ch << endl;
+    } else {
+        cout << "Input is not an uppercase letter" << endl;
+    }
+    return 0;
+}
+*/
 
 //Q5a Diagonal Matrix
 /*
@@ -497,7 +384,7 @@ int main()
 }
     */
 
-//Upper Triangular Event
+//Q5d Upper Triangular Matrix
 /*
 #include<bits/stdc++.h>
 using namespace std;
@@ -548,7 +435,7 @@ int main()
 }
 */
 
-//Symmetric Matrix
+//Q5e Symmetric Matrix
 /*
 #include<bits/stdc++.h>
 using namespace std;
@@ -648,7 +535,7 @@ int main()
 */
 
 /*
-//Multiplication of Matrices
+//Q6c Multiplication of Matrices
 
 #include<bits/stdc++.h>
 using namespace std;
@@ -746,7 +633,7 @@ int main()
 }
 */
 
-//Addition of Matrices
+//Q6b Addition of Matrices
 /*
 #include<bits/stdc++.h>
 using namespace std;
@@ -857,196 +744,117 @@ int main()
     display(r3,c3,v3,n3);
     return 0;
 }
-
 */
 
-//Extra Question 1
-//Count Pairs with sum equal to k
+//Q7 COUNTING INVERSIONS
 /*
 #include<bits/stdc++.h>
 using namespace std;
 
-int countpairs(vector<int>&a,int target)
+int merge(vector<int> &arr,int low,int mid,int high)
 {
-    int n=a.size();
-    int cnt=0;
-    sort(a.begin(),a.end());
-    int i=0,j=0;
-    while(j<n)
+  vector<int>temp; //creating temporary array space;
+  int left=low;
+  int right=mid+1,cnt=0;
+  while(left<=mid && right<=high)
+  {
+    if(arr[left]<=arr[right])
     {
-        if(a[j]-a[i]<target)
-        j++;
-        else if(a[j]-a[i]>target)
-        i++;
-        else
-        {
-            int ele1=a[i],ele2=a[j];
-            int cnt1=0,cnt2=0;
-            while(i<n && a[i]==ele1)
-            {
-                cnt1++;
-                i++;
-            }
-            while(j<n && a[j]==ele2)
-            {
-                cnt2++;
-                j++;
-            }
-            if(ele1==ele2)
-            cnt+=(cnt1*(cnt1-1))/2;
-            else
-            cnt+=(cnt1*cnt2);
-        }
+      temp.push_back(arr[left]);
+      left++;
+    }
+    else
+    {
+      temp.push_back(arr[right]);
+      right++;
+      cnt+=(mid-left+1);
+    }
+  }
+  //inserting elements left in bigger array
+    while(left<=mid)
+    {
+      temp.push_back(arr[left]);
+      left++;
+    }
+    while(right<=high)
+    {
+      temp.push_back(arr[right]);
+      right++;
+    }
+    for(int i=low;i<=high;i++)
+    {
+      arr[i]=temp[i-low]; //shifting to main array
     }
     return cnt;
 }
+
+int mergesort(vector<int> &arr,int low,int high)
+{
+    int cnt=0;
+  if(low>=high)
+  return 0;
+  int mid=(low+high)/2;
+  cnt+=mergesort(arr,low,mid);
+  cnt+=mergesort(arr,mid+1,high);
+  cnt+=merge(arr,low,mid,high);
+  return cnt;
+}
 int main()
 {
-    vector<int>a={1,4,1,5,4,8};
-    int k=3;
-    cout<<countpairs(a,k);
-    return 0;
-}
-    */
-
-//Extra Q2 String Split Challenge
-/*
-#include<bits/stdc++.h>
-using namespace std;
-
-bool sub(string major,string minor)
-{
-    return major.find(minor)!=string::npos;
-}
-bool cansplit(string s)
-{
-  int n=s.length();
-  for(int i=0;i<n-2;i++)
-  {
-    for(int j=i+1;j<n-1;j++)
+  int n;
+    cout<<"Enter the number of terms"<<endl;
+    cin>>n;
+    vector<int> a(n);
+    cout<<"Enter the terms please"<<endl;
+    for(int i=0;i<n;i++)
     {
-        string a=s.substr(0,i+1);
-        string b=s.substr(i+1,j-i);
-        string c=s.substr(j+1);
-        if(a.empty() || b.empty() || c.empty())
-        continue;
-        if((sub(b,a) && sub(c,a)) || (sub(a,c) && sub(b,c)) || (sub(a,b) && sub(c,b)))
-        return true;
+      cin>>a[i];
     }
-  }
-  return false;  
-}
-int main()
-{
-string s;
-cout<<"Enter your string"<<endl;
-cin>>s;
-if(cansplit(s))
-cout<<"YES,string can be split"<<endl;
-else
-cout<<"NO,string cannot be split"<<endl;
+    cout<<" "<<mergesort(a,0,n-1);
 return 0;
 }
 */
 
-//EXTRA Q3 STRING ANAGRAMS
+//Q8 COUNTING DISTINCT ELEMENTS
 /*
-#include<bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-bool checkanagrams(string s1,string s2)
-{
-    if(s1.length()!=s2.length())
-    return false;
-    sort(s1.begin(),s1.end());
-    sort(s2.begin(),s2.end());
-    return s1==s2;
-}
-int main()
-{
-    string str1="CAT";
-    string str2="ABT";
-    if(checkanagrams(str1,str2))
-    cout<<"They are Anagrams"<<endl;
-    else
-    cout<<"They are not Anagrams"<<endl;
-    return 0;
-} 
-    */
+int countdistinct(const vector<int>& arr, int n) {
+    int count = 0;
 
-//Extra Q4 Dutch National Flag Algorithm
-/*
-#include<bits/stdc++.h>
-using namespace std;
+    for (int i = 0; i<n; i++) {
+        bool isDistinct = true;
 
-int sortarray(vector<int> &a,int n)
-{
-int low=0,mid=0,high=n-1;
-while(mid<=high)
-{
-    if(a[mid]==0)
-    {
-        swap(a[low],a[mid]);
-        low++;
-        mid++;
+        for (int j = 0; j < i; j++) {
+            if (arr[i]==arr[j]) 
+            {
+                isDistinct=false;
+                break;
+            }
+        }
+
+        if (isDistinct) {
+            count++;
+        }
     }
-    else if(a[mid]==1)
-    mid++;
-    else
-    {
-        swap(a[mid],a[high]);
-        high--;
-    }
+
+    return count;
 }
-}
-int main()
-{   
-    int n=6;
-    vector<int>a={0, 2, 1, 2, 0, 1};
-    sortarray(a,n);
-    cout<<"After sorting-"<<endl;
-    for(int i=0;i<n;i++)
-    {
-        cout<<a[i]<<" ";
+
+int main() {
+    int n;
+    cout << "Enter the number of elements in the array: ";
+    cin >> n;
+
+    vector<int> arr(n);
+    cout << "Enter the elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
+    int distinctcount = countdistinct(arr, n);
+    cout << "Total number of distinct elements: " << distinctCount << endl;
     return 0;
 }
     */
-
-//Extra Question 5 Duplicate 2's
-/*
-#include<bits/stdc++.h>
-using namespace std;
-
-void duplicatetwos(int a[],int n)
-{
-int cnt=0;
-for(int i=0;i<n;i++)
-{
-    if(a[i]==2)
-    cnt++;
-}
-for(int i=n-1;i>=0;i--)
-{
-    if(a[i]==2)
-    cnt--;
-    int j=i+cnt; //edge cases(last ones)
-    if(j<n) 
-    a[j]=a[i];
-    if(a[i]==2 && j+1<n) //middle cases
-    a[j+1]=2;
-}
-for(int i=0;i<n;i++)
-{
-    cout<<a[i]<<" ";
-}
-}
-int main()
-{
-    int a[]={1,0,2,4,0,2,5};
-    int n=sizeof(a)/sizeof(a[0]);
-    duplicatetwos(a,n);
-    return 0;
-}
-    */
-
